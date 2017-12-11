@@ -8,6 +8,18 @@
         <servlet-name>SuccessServlet</servlet-name>
         <servlet-class>com.tlt.thatewallet.servlet.SuccessServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ConfirmTopup</servlet-name>
+        <servlet-class>com.tlt.thatewallet.servlet.ConfirmTopupServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>FailedTopupServlet</servlet-name>
+        <servlet-class>com.tlt.thatewallet.servlet.FailedTopupServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UnknowUserServlet</servlet-name>
+        <servlet-class>com.tlt.thatewallet.servlet.UnknowUserServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>TopUpServlet</servlet-name>
         <url-pattern>/topup</url-pattern>
@@ -15,6 +27,18 @@
     <servlet-mapping>
         <servlet-name>SuccessServlet</servlet-name>
         <url-pattern>/SuccessServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ConfirmTopup</servlet-name>
+        <url-pattern>/ConfirmTopup</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>FailedTopupServlet</servlet-name>
+        <url-pattern>/FailedTopupServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UnknowUserServlet</servlet-name>
+        <url-pattern>/UnknowUserServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
