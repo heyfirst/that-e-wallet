@@ -5,6 +5,7 @@
  */
 package com.tlt.thatewallet.servlet;
 
+import com.tlt.thatewallet.model.User;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -30,7 +31,16 @@ public class ConfirmTopupServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        getServletContext().getRequestDispatcher("/confirmtopup.jsp").forward(request, response);
+        try (PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
+            
+            User user1 = new User();
+            request.setAttribute("hello", user1.findByPhonenumber());
+            getServletContext().getRequestDispatcher("/confirmtopup.jsp").forward(request, response);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
