@@ -14,8 +14,8 @@
     </head>
     <body>
         <div>
-        <h1>Failed to top up</h1>
-        <p>ระบบสามารถเติมเงินได้อีกจำนวน XXX บาท
+        <h1>Failed to top up</h1><br>
+        <p style="">ระบบสามารถเติมเงินได้อีกจำนวน XXX บาท<br>
         กรุณากลับไปทำรายการใหม่อีกครั้ง</p>
         <button type="button" class="btn btn-outline-dark">ย้อนกลับ</button>
         </div>

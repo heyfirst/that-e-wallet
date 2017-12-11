@@ -14,7 +14,7 @@
     </head>
     <body>
         <div class="">
-        <h1>THAT E-WALLET</h1>
+        <h1>Top up successful</h1><br>
         <p>ระบบได้ทำการเติมเงินเรียบร้อยแล้ว</p>
         <button type="button" class="btn btn-outline-success">กลับสู่หน้าหลัก</button>
         </div>

@@ -13,22 +13,22 @@
         <title>Top Up</title>
     </head>
     <body>
-
-            <div class="w-25 p-3">
-                <h1>Top Up</h1>
-                <form action="" method="POST"><br>
-                    <div class="form-group">
-                        <label for="inputTopup">จำนวนเงิน</label>
-                        <input type="text" class="form-control" id="inputTopup" placeholder="0.00">
-                    </div>
-                    <div class="form-group">
-                        <label for="inputPhonenumber">เบอร์โทรศัพท์</label>
-                        <input type="text" class="form-control" id="inputPhonenumber" placeholder="0XX-XXX-XXXX">
-                    </div>
-                    <button type="button" class="btn btn-outline-dark">ย้อนกลับ</button>
-                    <button type="button" class="btn btn-outline-success">ยืนยัน</button>
-                </form>
-            </div>
-
-    </body>
+    <center>
+        <div class="w-25 p-3">
+            <h1>Top Up</h1>
+            <form action="" method="POST"><br>
+                <div class="form-group" style="text-align: left">
+                    <label for="inputTopup">จำนวนเงิน</label>
+                    <input type="text" class="form-control" id="inputTopup" placeholder="0.00">
+                </div>
+                <div class="form-group" style="text-align: left">
+                    <label for="inputPhonenumber">เบอร์โทรศัพท์</label>
+                    <input type="text" class="form-control" id="inputPhonenumber" placeholder="0XX-XXX-XXXX">
+                </div>
+                <button type="button" class="btn btn-outline-dark">ย้อนกลับ</button>
+                <button type="button" class="btn btn-outline-success">ยืนยัน</button>
+            </form>
+        </div>
+    </center>
+</body>
 </html>
