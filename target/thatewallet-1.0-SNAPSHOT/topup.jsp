@@ -9,9 +9,19 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+        <title>Top Up</title>
     </head>
     <body>
+        <div>
         <h1>Top Up</h1>
+        <form action="" method="POST"><br>
+            จำนวนเงิน: <input type="text" name="amount" required/> บาท<br><br>
+            เบอร์โทรศํพท์: <input type="text" name="phoneNumber" required/><br>
+            <br>
+            <button type="button" class="btn btn-outline-dark">ย้อนกลับ</button>
+            <button type="button" class="btn btn-outline-success">ยืนยัน</button>
+        </form>
+        </div>
     </body>
 </html>
