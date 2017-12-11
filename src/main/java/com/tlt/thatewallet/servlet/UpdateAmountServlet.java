@@ -8,6 +8,9 @@ package com.tlt.thatewallet.servlet;
 import com.tlt.thatewallet.model.User;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -30,29 +33,33 @@ public class UpdateAmountServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String topup = request.getParameter("topup");
-        String phoneNumber = request.getParameter("phoneNumber");
-        
-        // Check Existing User
-        User user = User.findByPhonenumber(phoneNumber);
-        if (user == null) {
-            // Render Error
+        try {
+            String topup = request.getParameter("topup");
+            String phoneNumber = request.getParameter("phoneNumber");
+            
+            // Check Existing User
+            User user = User.findByPhonenumber(phoneNumber);
+            if (user == null) {
+                // Render Error
+                getServletContext()
+                        .getRequestDispatcher("/unknownuser.jsp")
+                        .forward(request, response);
+                System.out.println("Not User");
+                return;
+            }
+            
+            // Update Amount !
+            user.updateNewAmount(Double.parseDouble(topup), phoneNumber);
+            
+            // Success !
             getServletContext()
-                .getRequestDispatcher("/unknownuser.jsp")
-                .forward(request, response);  
-            System.out.println("Not User");
+                    .getRequestDispatcher("/success.jsp")
+                    .forward(request, response);
+            System.out.println("Success");
             return;
+        } catch (SQLException ex) {
+            ex.printStackTrace();
         }
-        
-        // Update Amount !
-        User.updateAmount(Double.parseDouble(topup));
-        
-        // Success !
-        getServletContext()
-            .getRequestDispatcher("/success.jsp")
-            .forward(request, response);
-        System.out.println("Success");
-        return;
     
     }
 

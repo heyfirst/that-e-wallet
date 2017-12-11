@@ -10,6 +10,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -23,10 +24,11 @@ public class User {
     private String name ;
     private String phoneNumber;
     private double uAmount ;
-
+    private double newAmount;
+    private double userAmount;
+    
     public User() {
     }
-    
     
     public User(ResultSet rs) throws SQLException {
         this.userId = rs.getInt("userId");
@@ -51,6 +53,7 @@ public class User {
         }
      return u ;   
     }
+
     public int getUserId() {
         return userId;
     }
@@ -87,32 +90,22 @@ public class User {
     public void setuAmount(double uAmount) {
         this.uAmount = uAmount;
     }
-
-    @Override
-    public int hashCode() {
-        int hash = 7;
-        hash = 97 * hash + this.userId;
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final User other = (User) obj;
-        if (this.userId != other.userId) {
-            return false;
-        }
-        return true;
-    }
-
     
+    public void updateNewAmount(double amount,String pN) throws SQLException{
+        
+        userAmount = this.getuAmount();
+        newAmount = amount+userAmount; 
+        
+        Statement statement = null;
+        try {
+            String sql = "UPDATE user SET uamont = "+newAmount+" where phoneNumber = "+pN;
+            Connection conn = ConnectionBuilder.getConnection();
+            statement = conn.createStatement();
+            statement.executeUpdate(sql);
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+
     
 }

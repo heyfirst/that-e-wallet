@@ -51,6 +51,16 @@ public class UserTest {
         String param = "0948746165";
         User result = instance.findByPhonenumber(param);
         
-        assertEquals(expResult, result);
+        assertEquals(expResult.getUserId(), result.getUserId());
+    }
+    
+    @Test
+    public void testUpdateNewAmount() throws Exception {
+        User oldUser = User.findByPhonenumber("0948746165");
+        oldUser.updateNewAmount(20.00, "0948746165");
+        
+        User newUser = User.findByPhonenumber("0948746165");
+        
+        assertEquals(oldUser.getuAmount() + 20 , newUser.getuAmount(), 0.0);
     }
 }

@@ -13,10 +13,6 @@
         <servlet-class>com.tlt.thatewallet.servlet.UpdateAmountServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>ConfirmTopup</servlet-name>
-        <servlet-class>com.tlt.thatewallet.servlet.ConfirmTopupServlet</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>FailedTopupServlet</servlet-name>
         <servlet-class>com.tlt.thatewallet.servlet.FailedTopupServlet</servlet-class>
     </servlet>
@@ -37,10 +33,6 @@
         <url-pattern>/UpdateAmount</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>ConfirmTopup</servlet-name>
-        <url-pattern>/ConfirmTopup</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>FailedTopupServlet</servlet-name>
         <url-pattern>/FailedTopupServlet</url-pattern>
     </servlet-mapping>
@@ -49,8 +41,6 @@
         <url-pattern>/UnknowUserServlet</url-pattern>
     </servlet-mapping>
     <session-config>
-        <session-timeout>
-            30
-        </session-timeout>
+        <session-timeout>30</session-timeout>
     </session-config>
 </web-app>
