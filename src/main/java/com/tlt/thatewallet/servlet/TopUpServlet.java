@@ -43,9 +43,9 @@ public class TopUpServlet extends HttpServlet {
         User user = User.findByPhonenumber(phoneNumber);
         if (user == null) {
             // Render Error
-//            getServletContext()
-//                .getRequestDispatcher("/failuser.jsp")
-//                .forward(request, response);  
+            getServletContext()
+                .getRequestDispatcher("/failuser.jsp")
+                .forward(request, response);  
             System.out.println("Not User");
             return;
         }
