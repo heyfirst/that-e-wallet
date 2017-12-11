@@ -5,6 +5,7 @@
  */
 package com.tlt.thatewallet.servlet.model;
 
+import com.tlt.thatewallet.model.User;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -45,7 +46,11 @@ public class UserIT {
         System.out.println("findByPhonenumber");
         String param = "0948746165";
         User instance = new User();
-        String expResult = "0948746165";
+        instance.setName("Aom");
+        instance.setPhoneNumber("0948746165");
+        instance.setUserId(1001);
+        instance.setuAmount(10.00);
+        User expResult = instance;
         User result = instance.findByPhonenumber(param);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
