@@ -12,6 +12,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  *
@@ -62,6 +63,11 @@ public class User {
         return name;
     }
 
+    @Override
+    public String toString() {
+        return "User{" + "userId=" + userId + ", name=" + name + ", phoneNumber=" + phoneNumber + ", uAmount=" + uAmount + '}';
+    }
+
     public void setName(String name) {
         this.name = name;
     }
@@ -81,8 +87,32 @@ public class User {
     public void setuAmount(double uAmount) {
         this.uAmount = uAmount;
     }
-    
-    
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 97 * hash + this.userId;
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final User other = (User) obj;
+        if (this.userId != other.userId) {
+            return false;
+        }
+        return true;
+    }
+
     
     
 }
