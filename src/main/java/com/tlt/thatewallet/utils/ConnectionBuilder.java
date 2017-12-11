@@ -20,7 +20,7 @@ public class ConnectionBuilder {
         try {
             Class.forName("com.mysql.jdbc.Driver").newInstance();
             //Get a connection
-            conn = DriverManager.getConnection("jdbc:mysql://db.ks.in.th:3306","agile","sitagile");
+            conn = DriverManager.getConnection("jdbc:mysql://db.ks.in.th:3306/agile_helloworld","agile","sitagile");
            
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | SQLException except) {
             except.printStackTrace();
