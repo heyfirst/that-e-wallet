@@ -4,9 +4,17 @@
         <servlet-name>TopUpServlet</servlet-name>
         <servlet-class>com.tlt.thatewallet.servlet.TopUpServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>SuccessServlet</servlet-name>
+        <servlet-class>com.tlt.thatewallet.servlet.SuccessServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>TopUpServlet</servlet-name>
         <url-pattern>/topup</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SuccessServlet</servlet-name>
+        <url-pattern>/SuccessServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: com.tlt.thatewallet.servlet.TopUpServletTest
 -------------------------------------------------------------------------------
-Tests run: 4, Failures: 0, Errors: 4, Skipped: 0, Time elapsed: 0.472 sec <<< FAILURE!
-testDoGet(com.tlt.thatewallet.servlet.TopUpServletTest)  Time elapsed: 0.124 sec  <<< ERROR!
+Tests run: 4, Failures: 0, Errors: 4, Skipped: 0, Time elapsed: 0.328 sec <<< FAILURE!
+testDoGet(com.tlt.thatewallet.servlet.TopUpServletTest)  Time elapsed: 0.111 sec  <<< ERROR!
 java.lang.ExceptionInInitializerError
 	at com.tlt.thatewallet.servlet.TopUpServletTest.testDoGet(TopUpServletTest.java:64)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
