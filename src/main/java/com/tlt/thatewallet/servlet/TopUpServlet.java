@@ -5,6 +5,7 @@
  */
 package com.tlt.thatewallet.servlet;
 
+import com.tlt.thatewallet.model.User;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -39,30 +40,37 @@ public class TopUpServlet extends HttpServlet {
         String phoneNumber = request.getParameter("phoneNumber");
         
         // Check Existing User
-        User user = new User.findByPhonenumber(phoneNumber);
+        User user = User.findByPhonenumber(phoneNumber);
         if (user == null) {
             // Render Error
-            getServletContext()
-                .getRequestDispatcher("/failuser.jsp")
-                .forward(request, response);
+//            getServletContext()
+//                .getRequestDispatcher("/failuser.jsp")
+//                .forward(request, response);  
+            System.out.println("Not User");
+            return;
         }
         
         
         // Check Can Topup
         
-        Double newBalance = user.getUamount() + topup;
+        Double newBalance = user.getuAmount() + Double.parseDouble(topup);
         if (newBalance <= 5000) {
             // Render Confirm
             // Render JSP
-            getServletContext()
-                .getRequestDispatcher("/confirm.jsp")
-                .forward(request, response);
+            System.out.println(newBalance);
+//            getServletContext()
+//                .getRequestDispatcher("/confirm.jsp")
+//                .forward(request, response);
+            System.out.println("Comfirming");
+            return;
         } else {
             // Render Error
-            getServletContext()
-                .getRequestDispatcher("/overamount.jsp")
-                .forward(request, response);
-           }
+//            getServletContext()
+//                .getRequestDispatcher("/overamount.jsp")
+//                .forward(request, response);
+//           }
+            System.out.println("Can not TopUp");
+            return;
         }
-
+    }
 }
