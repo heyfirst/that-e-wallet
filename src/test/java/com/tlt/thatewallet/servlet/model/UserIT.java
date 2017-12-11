@@ -6,6 +6,9 @@
 package com.tlt.thatewallet.servlet.model;
 
 import com.tlt.thatewallet.model.User;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -49,13 +52,32 @@ public class UserIT {
         instance.setName("Aom");
         instance.setPhoneNumber("0948746165");
         instance.setUserId(1001);
-        instance.setuAmount(10.00);
+        instance.setuAmount(20.00);
         User expResult = instance;
         User result = instance.findByPhonenumber(param);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
        
     }
+//    @Test
+//    public void testUpdateNewAmount()  {
+//       
+//        User instance = new User();
+//        User beforeUser = instance.findByPhonenumber("0948746165");
+//        
+//        try {
+//            instance.updateNewAmount(20, "0948746165");
+//        } catch (SQLException ex) {
+//           fail();
+//        }
+//        
+//        User after = instance.findByPhonenumber("0948746165");
+//        
+//        assertEquals(20,after.getuAmount()-beforeUser.getuAmount());
+//        
+//        
+//    }
+    
 
     /**
      * Test of getUserId method, of class User.

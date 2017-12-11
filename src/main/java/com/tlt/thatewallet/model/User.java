@@ -10,6 +10,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -23,9 +24,13 @@ public class User {
     private String name ;
     private String phoneNumber;
     private double uAmount ;
-
+    private double newAmount;
+    private double userAmount;
+    
     public User() {
     }
+    
+   
     
     
     public User(ResultSet rs) throws SQLException {
@@ -36,21 +41,10 @@ public class User {
        
     }
 
-      public static User findByPhonenumber(String param){
-        User u = null; 
-        Connection conn = ConnectionBuilder.getConnection();
-        try {
-            PreparedStatement pstm = conn.prepareStatement("SELECT * FROM user WHERE phonenumber like ?");
-            pstm.setString(1,param);
-            ResultSet rs = pstm.executeQuery();
-            while(rs.next()){               
-               u = new User (rs);
-            }
-        } catch (SQLException ex) {
-            System.out.println(ex);
-        }
-     return u ;   
-    }
+     
+    
+    
+      
     public int getUserId() {
         return userId;
     }
@@ -87,30 +81,35 @@ public class User {
     public void setuAmount(double uAmount) {
         this.uAmount = uAmount;
     }
-
-    @Override
-    public int hashCode() {
-        int hash = 7;
-        hash = 97 * hash + this.userId;
-        return hash;
+    public static User findByPhonenumber(String param){
+        User u = null; 
+        Connection conn = ConnectionBuilder.getConnection();
+        try {
+            PreparedStatement pstm = conn.prepareStatement("SELECT * FROM user WHERE phonenumber like ?");
+            pstm.setString(1,param);
+            ResultSet rs = pstm.executeQuery();
+            while(rs.next()){               
+               u = new User (rs);
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+     return u ;   
     }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
+    
+    public void updateNewAmount(int amount,String pN) throws SQLException{
+        
+        userAmount = getuAmount();
+        newAmount = amount+userAmount;   
+        Statement statement = null;
+        try {
+            String sql = "UPDATE user SET uamount="+newAmount+"where phoneNumber="+pN;
+            Connection conn = ConnectionBuilder.getConnection();
+            statement = conn.createStatement();
+            statement.executeUpdate(sql);
+        } catch (Exception e) {
+            System.out.println(e);
         }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final User other = (User) obj;
-        if (this.userId != other.userId) {
-            return false;
-        }
-        return true;
     }
 
     
