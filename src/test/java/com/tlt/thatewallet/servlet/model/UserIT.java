@@ -47,7 +47,7 @@ public class UserIT {
         User instance = new User();
         String expResult = "0948746165";
         User result = instance.findByPhonenumber(param);
-        assertEquals(expResult, result.getPhoneNumber());
+        assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
        
     }
