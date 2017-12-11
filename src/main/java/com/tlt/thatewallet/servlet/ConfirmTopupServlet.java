@@ -15,9 +15,9 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author KS
+ * @author shunq_
  */
-public class UpdateAmountServlet extends HttpServlet {
+public class ConfirmTopupServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -30,30 +30,17 @@ public class UpdateAmountServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String topup = request.getParameter("topup");
-        String phoneNumber = request.getParameter("phoneNumber");
-        
-        // Check Existing User
-        User user = User.findByPhonenumber(phoneNumber);
-        if (user == null) {
-            // Render Error
-            getServletContext()
-                .getRequestDispatcher("/unknownuser.jsp")
-                .forward(request, response);  
-            System.out.println("Not User");
-            return;
+        response.setContentType("text/html;charset=UTF-8");
+        try (PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
+            
+            User user1 = new User();
+//            request.setAttribute("hello", user1.findByPhonenumber());
+            getServletContext().getRequestDispatcher("/confirmtopup.jsp").forward(request, response);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
         
-        // Update Amount !
-        User.updateAmount(Double.parseDouble(topup));
-        
-        // Success !
-        getServletContext()
-            .getRequestDispatcher("/success.jsp")
-            .forward(request, response);
-        System.out.println("Success");
-        return;
-    
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

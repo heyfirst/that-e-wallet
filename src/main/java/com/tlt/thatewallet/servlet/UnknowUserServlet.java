@@ -5,7 +5,6 @@
  */
 package com.tlt.thatewallet.servlet;
 
-import com.tlt.thatewallet.model.User;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -15,9 +14,9 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author KS
+ * @author shunq_
  */
-public class UpdateAmountServlet extends HttpServlet {
+public class UnknowUserServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -30,30 +29,8 @@ public class UpdateAmountServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String topup = request.getParameter("topup");
-        String phoneNumber = request.getParameter("phoneNumber");
-        
-        // Check Existing User
-        User user = User.findByPhonenumber(phoneNumber);
-        if (user == null) {
-            // Render Error
-            getServletContext()
-                .getRequestDispatcher("/unknownuser.jsp")
-                .forward(request, response);  
-            System.out.println("Not User");
-            return;
-        }
-        
-        // Update Amount !
-        User.updateAmount(Double.parseDouble(topup));
-        
-        // Success !
-        getServletContext()
-            .getRequestDispatcher("/success.jsp")
-            .forward(request, response);
-        System.out.println("Success");
-        return;
-    
+        response.setContentType("text/html;charset=UTF-8");
+        getServletContext().getRequestDispatcher("/unknowuser.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

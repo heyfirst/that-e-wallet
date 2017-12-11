@@ -18,7 +18,6 @@ import javax.servlet.http.HttpServletResponse;
  * @author KS
  */
 public class TopUpServlet extends HttpServlet {
-
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -44,7 +43,7 @@ public class TopUpServlet extends HttpServlet {
         if (user == null) {
             // Render Error
             getServletContext()
-                .getRequestDispatcher("/failuser.jsp")
+                .getRequestDispatcher("/unknownuser.jsp")
                 .forward(request, response);  
             System.out.println("Not User");
             return;
@@ -58,19 +57,25 @@ public class TopUpServlet extends HttpServlet {
             // Render Confirm
             // Render JSP
             System.out.println(newBalance);
-//            getServletContext()
-//                .getRequestDispatcher("/confirm.jsp")
-//                .forward(request, response);
+            
+            request.setAttribute("user", user);
+            request.setAttribute("topup", Double.parseDouble(topup));
+            
+            getServletContext()
+                .getRequestDispatcher("/confirmtopup.jsp")
+                .forward(request, response);
             System.out.println("Comfirming");
             return;
         } else {
             // Render Error
-//            getServletContext()
-//                .getRequestDispatcher("/overamount.jsp")
-//                .forward(request, response);
-//           }
+            request.setAttribute("user", user);
+            
+            getServletContext()
+                .getRequestDispatcher("/failedtopup.jsp")
+                .forward(request, response);
             System.out.println("Can not TopUp");
             return;
         }
     }
+    
 }

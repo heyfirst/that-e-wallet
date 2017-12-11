@@ -40,15 +40,17 @@ public class UserTest {
     @Test
     public void testFindByPhonenumber() {
         System.out.println("findByPhonenumber");
-        String param = "0948746165";
+        
         User instance = new User();
         instance.setName("Aom");
         instance.setPhoneNumber("0948746165");
         instance.setUserId(1001);
         instance.setuAmount(10.00);
         User expResult = instance;
+        
+        String param = "0948746165";
         User result = instance.findByPhonenumber(param);
+        
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
     }
 }

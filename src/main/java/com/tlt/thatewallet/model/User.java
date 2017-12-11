@@ -36,7 +36,7 @@ public class User {
        
     }
 
-      public static User findByPhonenumber(String param){
+    public static User findByPhonenumber(String param){
         User u = null; 
         Connection conn = ConnectionBuilder.getConnection();
         try {
