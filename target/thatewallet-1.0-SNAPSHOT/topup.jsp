@@ -13,38 +13,22 @@
         <title>Top Up</title>
     </head>
     <body>
-<<<<<<< HEAD
-        <div class="w-25 p-3">
-            <h1>Top Up</h1>
-            <form action="" method="POST"><br>
-                <div class="form-group">
-                    <label for="inputTopup">จำนวนเงิน</label>
-                    <input type="text" class="form-control" id="inputTopup" placeholder="0.00">
-                </div>
-                <div class="form-group">
-=======
     <center>
         <div class="w-25 p-3">
             <h1>Top Up</h1>
-            <form action="" method="POST"><br>
+            <form action="topup" method="POST"><br>
                 <div class="form-group" style="text-align: left">
                     <label for="inputTopup">จำนวนเงิน</label>
-                    <input type="text" class="form-control" id="inputTopup" placeholder="0.00">
+                    <input type="text" class="form-control" id="inputTopup" name="topup" placeholder="0.00">
                 </div>
                 <div class="form-group" style="text-align: left">
->>>>>>> 11eb71320f63ccf03a25e7b56771c682257a3788
                     <label for="inputPhonenumber">เบอร์โทรศัพท์</label>
-                    <input type="text" class="form-control" id="inputPhonenumber" placeholder="0XX-XXX-XXXX">
+                    <input type="text" class="form-control" id="inputPhonenumber" name="phoneNumber" placeholder="0XX-XXX-XXXX">
                 </div>
                 <button type="button" class="btn btn-outline-dark">ย้อนกลับ</button>
-                <button type="button" class="btn btn-outline-success">ยืนยัน</button>
+                <button type="submit" class="btn btn-outline-success">ยืนยัน</button>
             </form>
         </div>
-<<<<<<< HEAD
-
-    </body>
-=======
     </center>
 </body>
->>>>>>> 11eb71320f63ccf03a25e7b56771c682257a3788
 </html>
