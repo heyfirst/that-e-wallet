@@ -39,16 +39,18 @@ public class TopUpServlet extends HttpServlet {
         String phoneNumber = request.getParameter("phoneNumber");
         
         // Check Existing User
-        User user = new User(phoneNumber);
+        User user = new User.findByPhonenumber(phoneNumber);
         if (user == null) {
             // Render Error
-            return;
+            getServletContext()
+                .getRequestDispatcher("/failuser.jsp")
+                .forward(request, response);
         }
         
         
         // Check Can Topup
         
-        Double newBalance = user.getBalance() + topup;
+        Double newBalance = user.getUamount() + topup;
         if (newBalance <= 5000) {
             // Render Confirm
             // Render JSP
@@ -57,13 +59,10 @@ public class TopUpServlet extends HttpServlet {
                 .forward(request, response);
         } else {
             // Render Error
-            return;
+            getServletContext()
+                .getRequestDispatcher("/overamount.jsp")
+                .forward(request, response);
+           }
         }
-    }
-    
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
 
 }
