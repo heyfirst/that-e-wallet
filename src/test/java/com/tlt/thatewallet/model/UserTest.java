@@ -3,9 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.tlt.thatewallet.servlet.model;
+package com.tlt.thatewallet.model;
 
-import com.tlt.thatewallet.model.User;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -15,11 +14,11 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author Manasanan.Aom
+ * @author KS
  */
-public class UserIT {
+public class UserTest {
     
-    public UserIT() {
+    public UserTest() {
     }
     
     @BeforeClass
@@ -37,10 +36,7 @@ public class UserIT {
     @After
     public void tearDown() {
     }
-
-    /**
-     * Test of findByPhonenumber method, of class User.
-     */
+    
     @Test
     public void testFindByPhonenumber() {
         System.out.println("findByPhonenumber");
@@ -54,11 +50,5 @@ public class UserIT {
         User result = instance.findByPhonenumber(param);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-       
     }
-
-    /**
-     * Test of getUserId method, of class User.
-     */
-    
 }
