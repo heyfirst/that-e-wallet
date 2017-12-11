@@ -10,9 +10,18 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
-        <title>JSP Page</title>
+        <title>Confirm Top Up</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <div>
+        <h1>Comfirm Top Up</h1>
+        <br><br>
+        <p>ออม</p>
+        <p>เบอร์โทรศัพท์: </p>
+        <p>จำนวนเงินที่เติม: </p>
+        <br>
+            <button type="button" class="btn btn-outline-dark">ย้อนกลับ</button>
+            <button type="button" class="btn btn-outline-success">ยืนยัน</button>
+        </div>
     </body>
 </html>
