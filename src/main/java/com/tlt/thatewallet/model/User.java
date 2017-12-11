@@ -97,13 +97,14 @@ public class User {
      return u ;   
     }
     
-    public void updateNewAmount(int amount,String pN) throws SQLException{
+    public void updateNewAmount(double amount,String pN) throws SQLException{
         
-        userAmount = getuAmount();
-        newAmount = amount+userAmount;   
+        userAmount = this.getuAmount();
+        newAmount = amount+userAmount; 
+        
         Statement statement = null;
         try {
-            String sql = "UPDATE user SET uamount="+newAmount+"where phoneNumber="+pN;
+            String sql = "UPDATE user SET uamont = "+newAmount+" where phoneNumber = "+pN;
             Connection conn = ConnectionBuilder.getConnection();
             statement = conn.createStatement();
             statement.executeUpdate(sql);
