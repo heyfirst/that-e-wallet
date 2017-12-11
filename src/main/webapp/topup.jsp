@@ -13,15 +13,22 @@
         <title>Top Up</title>
     </head>
     <body>
-        <div>
-        <h1>Top Up</h1>
-        <form action="" method="POST"><br>
-            จำนวนเงิน: <input type="text" name="amount" required/> บาท<br><br>
-            เบอร์โทรศํพท์: <input type="text" name="phoneNumber" required/><br>
-            <br>
-            <button type="button" class="btn btn-outline-dark">ย้อนกลับ</button>
-            <button type="button" class="btn btn-outline-success">ยืนยัน</button>
-        </form>
-        </div>
+
+            <div class="w-25 p-3">
+                <h1>Top Up</h1>
+                <form action="" method="POST"><br>
+                    <div class="form-group">
+                        <label for="inputTopup">จำนวนเงิน</label>
+                        <input type="text" class="form-control" id="inputTopup" placeholder="0.00">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPhonenumber">เบอร์โทรศัพท์</label>
+                        <input type="text" class="form-control" id="inputPhonenumber" placeholder="0XX-XXX-XXXX">
+                    </div>
+                    <button type="button" class="btn btn-outline-dark">ย้อนกลับ</button>
+                    <button type="button" class="btn btn-outline-success">ยืนยัน</button>
+                </form>
+            </div>
+
     </body>
 </html>
